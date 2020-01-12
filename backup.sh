@@ -6,6 +6,7 @@ TODAY="$(date "+%Y-%m-%d")"
 LOG_FILE="log/$TODAY.log"
 MAX_BUFFER_SIZE="3"
 
+mkdir -p "$BACKUP_PATH"
 cd "$BACKUP_PATH"
 
 create_backup_file()
@@ -20,7 +21,8 @@ create_backup_file()
 
 remove_old_file()
 {   
-    cd "DockerAutoBackup"
+    echo "$(pwd)"
+    cd "Docker-Auto-Update"
     /usr/bin/python3  remove_old_file.py  $BACKUP_PATH $MAX_BUFFER_SIZE $CONTAINER_NAMES
     cd ..
 }
