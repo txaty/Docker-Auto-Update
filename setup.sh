@@ -30,7 +30,7 @@ fi
 echo 
 
 echo -e "Please specify the user for sftp connection. Currently the user is: "
-sed -n '3p' transfer.py | cut -d "'" -f2
+sed -n '5p' transfer.py | cut -d "'" -f2
 echo -e "Input ENTER only to unchange, or type a new name: \n> \c"
 read THE_USER_NAME
 if [ "$THE_USER_NAME" == "" ];
@@ -38,12 +38,12 @@ if [ "$THE_USER_NAME" == "" ];
         echo -e "Unchanged."
     else
         replace_string="USER = '$THE_USER_NAME'"
-        sed -i "3s#.*#$replace_string#" transfer.py
+        sed -i "5s#.*#$replace_string#" transfer.py
         echo -e "Changed to: $THE_USER_NAME."
 fi
 
 echo -e "Please specify the host for sftp connection. Currently the host is: "
-sed -n '4p' transfer.py | cut -d "'" -f2
+sed -n '6p' transfer.py | cut -d "'" -f2
 echo -e "Input ENTER only to unchange, or type a new name: \n> \c"
 read THE_HOST_NAME
 if [ "$THE_HOST_NAME" == "" ];
@@ -51,7 +51,7 @@ if [ "$THE_HOST_NAME" == "" ];
         echo -e "Unchanged."
     else
         replace_string="HOST = '$THE_HOST_NAME'"
-        sed -i "4s#.*#$replace_string#" transfer.py
+        sed -i "6s#.*#$replace_string#" transfer.py
         echo -e "Changed to: $THE_HOST_NAME."
 fi
 
@@ -62,12 +62,12 @@ if [ "$PASSWORD" == "" ];
         echo -e "Unchanged."
     else
         replace_string="PASSWORD = '$PASSWORD'"
-        sed -i "5s#.*#$replace_string#" transfer.py
+        sed -i "7s#.*#$replace_string#" transfer.py
         echo -e "Password set."
 fi
 
 echo -e "Please specify the path for host to store backups. Currently the path is: "
-sed -n '6p' transfer.py | cut -d " " -f3
+sed -n '8p' transfer.py | cut -d " " -f3
 echo -e "Input ENTER only to unchange, or type a new name: \n> \c"
 read BACKUP_PATH
 if [ "$BACKUP_PATH" == "" ];
@@ -75,7 +75,7 @@ if [ "$BACKUP_PATH" == "" ];
         echo -e "Unchanged."
     else
         replace_string="HOST = '$BACKUP_PATH'"
-        sed -i "6s#.*#$replace_string#" transfer.py
+        sed -i "8s#.*#$replace_string#" transfer.py
         echo -e "Changed to: $BACKUP_PATH."
 fi
 
