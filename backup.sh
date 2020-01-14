@@ -1,7 +1,7 @@
 #!/bin/bash
 
+BACKUP_PATH="/root/DockerVolumeBackups/"
 CONTAINER_NAMES="gogs"
-BACKUP_PATH="/root/DockerVolumeBackups"
 TODAY="$(date "+%Y-%m-%d-%H:%M:%S")"
 LOG_FILE="log/$TODAY.log"
 MAX_BUFFER_SIZE="5"
@@ -28,5 +28,14 @@ remove_old_file()
     cd ..
     echo "-----Removing finished-----" >> "$LOG_FILE"
 }
+
+transfer_file()
+{
+    local_path=$(pwd)
+    cd "Docker-Auto-Update"
+    python3 transfer.py local_path  >> "$LOG_FILE"
+}
+
 create_backup_file
 remove_old_file
+transfer_file
