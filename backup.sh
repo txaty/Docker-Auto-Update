@@ -33,7 +33,7 @@ transfer_file()
 {
     local_path=$(pwd)
     cd "Docker-Auto-Update"
-    python transfer.py t $local_path  >> "../$LOG_FILE" 2>&1
+    /usr/bin/python3 transfer.py t $local_path  >> "../$LOG_FILE" 2>&1
 }
 
 create_backup_file

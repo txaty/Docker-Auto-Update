@@ -6,10 +6,11 @@ USER = ''
 HOST = ''
 PASSWORD = ''
 BACKUP_PATH = '/root/DockerVolumeBackups'
-
+cnopts = pysftp.CnOpts()
+cnopts.hostkeys = None 
 
 def initialization():
-    sftp = pysftp.Connection(host=HOST, username=USER, password=PASSWORD)
+    sftp = pysftp.Connection(host=HOST, username=USER, password=PASSWORD, cnopts=cnopts)
     if not sftp.exists(BACKUP_PATH):
         sftp.mkdir(BACKUP_PATH)
         print('Created directory: ' + BACKUP_PATH + ' on ' + HOST)
@@ -18,7 +19,7 @@ def initialization():
 
 def transfer_files():
     local_path = sys.argv[2] + '/backups'
-    sftp = pysftp.Connection(host=HOST, username=USER, password=PASSWORD)
+    sftp = pysftp.Connection(host=HOST, username=USER, password=PASSWORD, cnopts=cnopts)
     sftp.put_d(local_path, BACKUP_PATH, preserve_mtime=True)
 
 
