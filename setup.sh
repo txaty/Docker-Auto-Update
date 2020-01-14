@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo -e "Installing necessary dependencies..."
-apt update -y
-apt-get install python-dev
-apt install -y python
-apt install -y python-pip
+sudo apt update -y
+sudo apt-get install python-dev
+sudo apt install -y python
+sudo apt install -y python-pip
 pip install pysftp
-chmod a+x backup.sh
-chmod a+x remove_old_file.py
+sudo chmod a+x backup.sh
+sudo chmod a+x remove_old_file.py
 
 cd ..
 echo -e "\n Here, $(pwd) will be the directory where you store your backup files on the local machine. \n"

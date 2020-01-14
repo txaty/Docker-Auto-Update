@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACKUP_PATH="/root/DockerVolumeBackups/"
+BACKUP_PATH="/home/ubuntu/Docker-backup/"
 CONTAINER_NAMES="gogs"
 TODAY="$(date "+%Y-%m-%d-%H:%M:%S")"
 LOG_FILE="log/$TODAY.log"
@@ -33,7 +33,7 @@ transfer_file()
 {
     local_path=$(pwd)
     cd "Docker-Auto-Update"
-    python transfer.py local_path  >> "$LOG_FILE"
+    python transfer.py t $local_path  >> "../$LOG_FILE" 2>&1
 }
 
 create_backup_file
