@@ -7,7 +7,6 @@ sudo apt install -y python
 sudo apt install -y python-pip
 pip install pysftp
 sudo chmod a+x backup.sh
-sudo chmod a+x remove_old_file.py
 
 cd ..
 echo -e "\n Here, $(pwd) will be the directory where you store your backup files on the local machine. \n"
@@ -74,7 +73,7 @@ if [ "$BACKUP_PATH" == "" ];
     then
         echo -e "Unchanged."
     else
-        replace_string="HOST = '$BACKUP_PATH'"
+        replace_string="BACKUP_PATH = '$BACKUP_PATH'"
         sed -i "8s#.*#$replace_string#" transfer.py
         echo -e "Changed to: $BACKUP_PATH."
 fi
