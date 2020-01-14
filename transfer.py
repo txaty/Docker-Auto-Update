@@ -1,6 +1,5 @@
 import pysftp
 import sys
-
 USER = ''
 HOST = ''
 PASSWORD = ''

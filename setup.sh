@@ -2,9 +2,10 @@
 
 echo -e "Installing necessary dependencies..."
 apt update -y
-apt install -y python3
-apt install -y python3-pip
-pip3 install pysftp
+apt-get install python-dev
+apt install -y python
+apt install -y python-pip
+pip install pysftp
 chmod a+x backup.sh
 chmod a+x remove_old_file.py
 
@@ -79,4 +80,4 @@ if [ "$BACKUP_PATH" == "" ];
 fi
 
 echo -e "Making changes on the other machine..."
-python3 transfer.py i
+python transfer.py i
