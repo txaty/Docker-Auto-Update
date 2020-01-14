@@ -2,7 +2,7 @@ import pysftp
 import sys
 
 
-USER = 'gogs'
+USER = ''
 HOST = ''
 PASSWORD = ''
 BACKUP_PATH = '/root/DockerVolumeBackups'

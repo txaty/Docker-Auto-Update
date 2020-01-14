@@ -4,7 +4,7 @@ BACKUP_PATH="/home/ubuntu/Docker-backup/"
 CONTAINER_NAMES="gogs"
 TODAY="$(date "+%Y-%m-%d-%H:%M:%S")"
 LOG_FILE="log/$TODAY.log"
-MAX_BUFFER_SIZE="5"
+MAX_BUFFER_SIZE="3"
 
 mkdir -p "$BACKUP_PATH"
 cd "$BACKUP_PATH"
